@@ -1,21 +1,3 @@
-function addLink(){
-    $('.link-list').append(newLink())
-}
-
-function openSettings(){
-    $('#default').toggle()
-    $('#manage').toggle()
-}
-
-function load(){
-    const savedLinks = JSON.parse(localStorage.getItem('links'))
-    for(let i = 0; i < savedLinks.length; i++){
-        const link = JSON.parse(savedLinks[i])
-        $('#default').append(`<a class='link' href='${link.href}'>${link.text}</a>`)
-        $('#manage').append(newLink(link))
-    }
-}
-
 function newLink(link){
     if(!link){
         link = {
@@ -42,16 +24,52 @@ function newLink(link){
     `
 }
 
+function addLink(){
+    $('.link-list').append(newLink())
+}
+
+function addSection(){
+    $('.section-list').append(newSection())
+}
+
+function newSection(section){
+    $('.section-list').append(`
+        <div class='section'>
+            <label>Section Title</label>
+            <input class='section-title' />
+            <br><br>
+            <label>Section Links</label>
+            <div class='section-links'>
+            ${}
+            </div>
+        </div>`
+    )
+}
+
+function openSettings(){
+    $('#default').toggle()
+    $('#manage').toggle()
+}
+
+function load(section){
+    const data = JSON.parse(section.links)
+    for(let i = 0; i < data.length; i++){
+        const link = JSON.parse(data[i])
+        $('#default').append(`<a class='link' href='${link.href}'>${link.text}</a>`)
+        $('#manage').append(newLink(link))
+    }
+}
+
 function save(){
-    let links = []
+    let data = []
     $('.link').each(function(){
-        links.push(JSON.stringify({
+        data.push(JSON.stringify({
             text: $('.text', this).val(),
             href: $('.href', this).val(),
             shortcut: $('.shortcut', this).val()
         }))
     })
-    localStorage.setItem('links', JSON.stringify(links))
+    localStorage.setItem('data', JSON.stringify(data))
 }
 
 $('document').ready(() => {

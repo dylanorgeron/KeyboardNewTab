@@ -3,7 +3,6 @@ body{
 }
 .panel{
     border: 1px solid #eee;
-    width: 500px;
     margin: auto;
     padding: 25px;
     position: relative;
