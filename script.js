@@ -25,8 +25,13 @@ function openSettings(){
 }
 
 function save(){
-    //convert fields to object
-    $('.links').forEach(el => {
-        console.log(el)
-    });
+    let links = []
+    $('.link').each(function(){
+        const link = this
+        const text = $('.text', link).val()
+        const href = $('.href', link).val()
+        const shortcut = $('.shortcut', link).val()
+        links.push({text, href, shortcut})
+    })
+    console.log(JSON.stringify(links))
 }

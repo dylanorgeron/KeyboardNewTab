@@ -1,20 +1,24 @@
 <html>
-    <head>
-        <title>New Tab</title>
-        <link rel="stylesheet" href="styles.css">
-        <script src="https://code.jquery.com/jquery-3.4.0.slim.min.js" integrity="sha256-ZaXnYkHGqIhqTbJ6MB4l9Frs/r7U4jlx7ir8PJYBqbI=" crossorigin="anonymous"></script>
-        <script src="script.js"></script>
-    </head>
-    <body>
-        <button id="settings" onclick="openSettings()">Settings</button>
-        <div class="panel" id="default">
-            Welcome
-        </div>
-        <div class="panel" id="manage">
-            Manage Links
-            <div class="link-list"></div>
-            <button onclick="addLink()">Add Link</button>
-            <button id="save" onclick="save()">Save</button>
-        </div>
-    </body>
+
+<head>
+    <title>New Tab</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://code.jquery.com/jquery-3.4.0.slim.min.js"
+        integrity="sha256-ZaXnYkHGqIhqTbJ6MB4l9Frs/r7U4jlx7ir8PJYBqbI=" crossorigin="anonymous"></script>
+    <script src="script.js"></script>
+</head>
+
+<body>
+    <button id="settings" onclick="openSettings()">Settings</button>
+    <div class="panel" id="default">
+        Welcome
+    </div>
+    <div class="panel" id="manage">
+        Manage Links
+        <div class="link-list"></div>
+        <button onclick="addLink()">Add Link</button>
+        <button id="save" onclick="save()">Save</button>
+    </div>
+</body>
+
 </html>
